@@ -2,7 +2,11 @@
 #include <stdlib.h>
 
 #include <editline/readline.h>
-#include <editline/history.h>
+#ifdef __APPLE__
+  #include <histedit.h>
+#elif __linux
+  #include <editline/history.h>
+#endif
 
 int main(int argc, char** argv){
   /*  Print Version and Exit Information */
